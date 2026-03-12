@@ -32,6 +32,31 @@ class LinkedList{
         }
 };
 
+class OrderedLinkedList : public LinkedList {
+    void AddNode(int d){
+        LinkedListNode* curr = head;
+        if (curr == nullptr){
+            LinkedListNode* newNode = new LinkedListNode(d, nullptr);
+        }
+        while(curr != nullptr){
+            if (curr->next == nullptr){
+                if (curr->data < d){
+                    LinkedListNode* newNode = new LinkedListNode(d, nullptr);
+                }
+                else{
+                    LinkedListNode* newNode = new LinkedListNode(d, curr);
+                    
+                }
+            }
+            else if (curr->data <= d && curr->next->data > d){
+                LinkedListNode* newNode = new LinkedListNode(d, curr->next);
+                break;
+            }
+        }
+        
+    }
+};
+
 int main(){
     LinkedList list;
 
